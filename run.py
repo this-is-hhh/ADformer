@@ -10,6 +10,9 @@ from exp.exp_classification_contrastive import Exp_Classification_Contrastive
 import random
 import numpy as np
 
+torch.cuda.set_per_process_memory_fraction(0.8, device=4)  # 设置最大使用的显存比例
+
+
 if __name__ == '__main__':
     """fix_seed = 42
     random.seed(fix_seed)

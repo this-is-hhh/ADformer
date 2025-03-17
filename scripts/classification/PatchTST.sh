@@ -61,10 +61,10 @@ python \
   -u run.py \
   --task_name classification \
   --is_training 1 \
-  --root_path ./dataset/AFAVA-AD/ \
-  --model_id AFAVA-AD-Indep \
+  --root_path /data0/zxj_data/fNIRS/VFT/class4_classhealth_npy \
+  --model_id AFAVA-Indep \
   --model PatchTST \
-  --data AD2Indep \
+  --data APAVAIndep \
   --e_layers 6 \
   --batch_size 16 \
   --d_model 128 \

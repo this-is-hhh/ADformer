@@ -68,6 +68,9 @@ class Exp_Classification(Exp_Basic):
             self.model.eval()
         with torch.no_grad():
             for i, (batch_x, label, padding_mask) in enumerate(vali_loader):
+                print("batch_x:",batch_x.shape)
+                print("label:",label)
+
                 batch_x = batch_x.float().to(self.device)
                 padding_mask = padding_mask.float().to(self.device)
                 label = label.to(self.device)
@@ -173,9 +176,11 @@ class Exp_Classification(Exp_Basic):
                 batch_x = batch_x.float().to(self.device)
                 padding_mask = padding_mask.float().to(self.device)
                 label = label.to(self.device)
+                print("label:",label.long())
 
                 outputs = self.model(batch_x, padding_mask, None, None)
                 loss = criterion(outputs, label.long())
+                print("outputs:",outputs.shape)
                 train_loss.append(loss.item())
 
                 if (i + 1) % 100 == 0:

@@ -1,0 +1,25 @@
+APAVA-Indep_ftM_sl96_ll48_pl96_dm128_nh8_el6_dl1_df256_fc1_ebtimeF_dtTrue_Exp_seed41  
+Validation results --- Loss: 3.64211, Accuracy: 0.58824, Precision: 0.68444, Recall: 0.65201, F1: 0.58246, AUROC: 0.61172, AUPRC: 0.65656
+Test results --- Loss: 2.40746, Accuracy: 0.61765, Precision: 0.64625, Recall: 0.62847, F1: 0.60920, AUROC: 0.64583, AUPRC: 0.69685
+
+
+APAVA-Indep_ftM_sl2400_ll48_pl0_dm128_nh8_el6_dl1_df256_fc1_ebtimeF_dtTrue_Exp_seed42  
+Validation results --- Loss: 2.96738, Accuracy: 0.58824, Precision: 0.56410, Recall: 0.56410, F1: 0.56410, AUROC: 0.57601, AUPRC: 0.59081
+Test results --- Loss: 2.76361, Accuracy: 0.76471, Precision: 0.76786, Recall: 0.76042, F1: 0.76140, AUROC: 0.88542, AUPRC: 0.89269
+
+
+APAVA-Indep_ftM_sl2400_ll48_pl0_dm128_nh8_el6_dl1_df256_fc1_ebtimeF_dtTrue_Exp_seed43  
+Validation results --- Loss: 2.73645, Accuracy: 0.67647, Precision: 0.65865, Recall: 0.62088, F1: 0.62107, AUROC: 0.62271, AUPRC: 0.62359
+Test results --- Loss: 2.25534, Accuracy: 0.47059, Precision: 0.43750, Recall: 0.45486, F1: 0.42045, AUROC: 0.58333, AUPRC: 0.61221
+
+
+APAVA-Indep_ftM_sl2400_ll48_pl0_dm128_nh8_el6_dl1_df256_fc1_ebtimeF_dtTrue_Exp_seed44  
+Validation results --- Loss: 2.66980, Accuracy: 0.55882, Precision: 0.55208, Recall: 0.55495, F1: 0.54907, AUROC: 0.58425, AUPRC: 0.60568
+Test results --- Loss: 4.87841, Accuracy: 0.52941, Precision: 0.53571, Recall: 0.53472, F1: 0.52778, AUROC: 0.58247, AUPRC: 0.62390
+
+
+APAVA-Indep_ftM_sl2400_ll48_pl0_dm128_nh8_el6_dl1_df256_fc1_ebtimeF_dtTrue_Exp_seed45  
+Validation results --- Loss: 1.24811, Accuracy: 0.70588, Precision: 0.72281, Recall: 0.73260, F1: 0.70486, AUROC: 0.69963, AUPRC: 0.68802
+Test results --- Loss: 1.31407, Accuracy: 0.61765, Precision: 0.61765, Recall: 0.61806, F1: 0.61732, AUROC: 0.68056, AUPRC: 0.68324
+
+

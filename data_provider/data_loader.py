@@ -201,8 +201,13 @@ class APAVAIndependentLoader(Dataset):
         data_list = np.load(self.label_path)
 
         all_ids = list(data_list[:, 1])  # id of all samples
-        val_ids = [15, 16, 19, 20]  # 15, 19 are AD; 16, 20 are HC
-        test_ids = [1, 2, 17, 18]  # 1, 17 are AD; 2, 18 are HC
+        # val_ids = [15, 16, 19, 20]  # 15, 19 are AD; 16, 20 are HC
+        # test_ids = [1, 2, 17, 18]  # 1, 17 are AD; 2, 18 are HC
+        # test_ids = [159, 97, 84, 46, 54, 81, 142, 11, 111, 100, 92, 15, 122, 126, 103, 57, 39, 85, 130, 165, 96, 58, 52, 171, 47, 110, 108, 3, 78, 70, 77, 169, 118, 152]
+        # val_ids = [151, 148, 101, 68, 115, 37, 13, 164, 26, 4, 76, 1, 55, 99, 127, 166, 45, 116, 67, 137, 157, 125, 114, 28, 123, 38, 153, 140, 135, 106, 9, 2, 22, 132]
+        test_ids = [64, 97, 83, 46, 54, 81, 142, 11, 111, 100, 92, 15, 122, 126, 103, 57, 39, 85, 130, 165, 96, 58, 52, 171, 47, 110, 108, 3, 78, 70, 77, 169, 118, 152]
+        val_ids = [12, 148, 56, 68, 115, 37, 13, 164, 26, 4, 76, 1, 55, 99, 127, 166, 45, 116, 67, 137, 157, 125, 114, 28, 123, 38, 153, 140, 135, 106, 9, 2, 22, 132]
+
         train_ids = [int(i) for i in all_ids if i not in val_ids + test_ids]
         # list of IDs for training, val, and test sets
         self.train_ids, self.val_ids, self.test_ids = train_ids, val_ids, test_ids
@@ -250,7 +255,7 @@ class APAVAIndependentLoader(Dataset):
         for j in range(len(filenames)):
             trial_label = subject_label[j]
             path = data_path + filenames[j]
-            subject_feature = np.load(path)
+            subject_feature = np.load(path,allow_pickle=True)
             for trial_feature in subject_feature:
                 # load data by ids
                 if j + 1 in ids:  # id starts from 1, not 0.

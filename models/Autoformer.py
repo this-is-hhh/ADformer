@@ -8,6 +8,30 @@ import math
 import numpy as np
 
 
+class MultiscaleConvolution(nn.Module):
+    def __init__(self, in_channels, out_channels, scales):
+        super(MultiscaleConvolution, self).__init__()
+        self.scales = scales
+        self.convs = nn.ModuleList()
+        for scale in scales:
+            self.convs.append(
+                nn.Sequential(
+                    nn.Conv1d(in_channels, out_channels, kernel_size=scale, stride=1, padding=scale // 2),
+                    nn.BatchNorm1d(out_channels),
+                    nn.LeakyReLU(inplace=True)
+                )
+            )
+
+    def forward(self, x):
+        # x shape: [batch_size, seq_len, in_channels]
+        x = x.permute(0, 2, 1)  # [batch_size, in_channels, seq_len]
+        out = []
+        for conv in self.convs:
+            out.append(conv(x))
+        out = torch.cat(out, dim=1)  # [batch_size, out_channels * len(scales), seq_len]
+        out = out.permute(0, 2, 1)  # [batch_size, seq_len, out_channels * len(scales)]
+        return out
+
 class Model(nn.Module):
     """
     Autoformer is the first method to achieve the series-wise connection,
@@ -30,6 +54,8 @@ class Model(nn.Module):
         # Embedding
         self.enc_embedding = DataEmbedding_wo_pos(configs.enc_in, configs.d_model, configs.embed, configs.freq,
                                                   configs.dropout)
+       
+        self.multiscale_conv = MultiscaleConvolution(configs.enc_in, configs.d_model, scales=[3,5,7])
         # Encoder
         self.encoder = Encoder(
             [
@@ -127,6 +153,7 @@ class Model(nn.Module):
 
     def classification(self, x_enc, x_mark_enc):
         # enc
+        x_enc = self.multiscale_conv(x_enc)
         enc_out = self.enc_embedding(x_enc, None)
         enc_out, attns = self.encoder(enc_out, attn_mask=None)
 

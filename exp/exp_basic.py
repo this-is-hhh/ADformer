@@ -1,8 +1,8 @@
 import os
 import torch
+from models import iTransformer
 from models import Autoformer, Transformer, TimesNet, Nonstationary_Transformer, DLinear, FEDformer, \
-    Informer, LightTS, Reformer, ETSformer, Pyraformer, PatchTST, MICN, Crossformer, FiLM, iTransformer, \
-    Koopa, TiDE, TCN, EEGNet, MTST, StatisticalFeatures, SpectralFeatures, PowerFeatures, ComplexityFeatures, ADformer
+    Informer, LightTS, Reformer, ETSformer, Pyraformer, PatchTST, MICN, Crossformer, FiLM, Koopa, TiDE, TCN, EEGNet, MTST, StatisticalFeatures, SpectralFeatures, PowerFeatures, ComplexityFeatures, ADformer
 
 
 class Exp_Basic(object):
